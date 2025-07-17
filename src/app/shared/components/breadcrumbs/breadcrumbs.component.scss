@@ -1,0 +1,20 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-family: 'Oswald', sans-serif;
+  color: #fff;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .separator {
+    margin: 0 8px;
+    color: #00e0ff;
+  }
+}
