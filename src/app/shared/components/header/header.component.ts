@@ -10,48 +10,50 @@ import {
 } from '@angular/cdk/menu';
 import {CdkConnectedOverlay, CdkOverlayOrigin} from '@angular/cdk/overlay';
 import {MatAnchor, MatButton} from '@angular/material/button';
+import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  imports: [
-    NgOptimizedImage,
-    NgIf,
-    CdkMenuTrigger,
-    CdkMenu,
-    CdkMenuItemCheckbox,
-    CdkMenuGroup,
-    CdkMenuItemRadio,
-    CdkMenuItem,
-    CdkConnectedOverlay,
-    CdkOverlayOrigin,
-    MatAnchor,
-    MatButton,
-  ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+    selector: 'app-header',
+    imports: [
+        NgOptimizedImage,
+        NgIf,
+        CdkMenuTrigger,
+        CdkMenu,
+        CdkMenuItemCheckbox,
+        CdkMenuGroup,
+        CdkMenuItemRadio,
+        CdkMenuItem,
+        CdkConnectedOverlay,
+        CdkOverlayOrigin,
+        MatAnchor,
+        MatButton,
+        RouterLink,
+    ],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  isMenuOpen = false;
-  isSubmenuOpen = false;
-  isSubMenuOpen = false;
+    isMenuOpen = false;
+    isSubmenuOpen = false;
+    isSubMenuOpen = false;
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
+    toggleMenu() {
+        this.isMenuOpen = !this.isMenuOpen;
+    }
 
-  toggleSubmenu() {
-    this.isSubmenuOpen = !this.isSubmenuOpen;
-  }
+    toggleSubmenu() {
+        this.isSubmenuOpen = !this.isSubmenuOpen;
+    }
 
-  bold = false;
-  italic = false;
+    bold = false;
+    italic = false;
 
-  sizes = ['Small', 'Normal', 'Large'];
-  selectedSize: string | undefined = 'Normal';
+    sizes = ['Small', 'Normal', 'Large'];
+    selectedSize: string | undefined = 'Normal';
 
-  reset() {
-    this.bold = false;
-    this.italic = false;
-    this.selectedSize = 'Normal';
-  }
+    reset() {
+        this.bold = false;
+        this.italic = false;
+        this.selectedSize = 'Normal';
+    }
 }

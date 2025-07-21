@@ -1,38 +1,49 @@
 <header>
-  <div class="logo">
-    <img src="images/Arman_liga.png" alt="Логотип Лига Арман">
-    <span>Футбольная лига</span>
-  </div>
-  <button class="hamburger-btn" aria-label="Меню" (click)="isMenuOpen = !isMenuOpen">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-
-  <ng-template
-    cdkConnectedOverlay
-    [cdkConnectedOverlayOpen]="isMenuOpen"
-    [cdkConnectedOverlayOrigin]="headerOrigin"
-    [cdkConnectedOverlayPositions]="[
-      {
-        originX: 'start',
-        originY: 'bottom',
-        overlayX: 'start',
-        overlayY: 'top'
-      }
-    ]"
-  >
-    <div class="menu">
-      <a href="#" class="menu-item">Матчи</a>
-      <a href="#" class="menu-item">Новости</a>
-
-      <button class="menu-item" (click)="isSubMenuOpen = !isSubMenuOpen">
-        О лиге
-      </button>
-      <div *ngIf="isSubMenuOpen" class="submenu">
-        <a href="#" class="menu-item">Наша команда</a>
-      </div>
+    <div class="logo">
+        <img src="images/Arman_liga.png" alt="Логотип Лига Арман" />
+        <span>Футбольная лига</span>
     </div>
-  </ng-template>
+    <button
+        class="hamburger-btn"
+        aria-label="Меню"
+        (click)="isMenuOpen = !isMenuOpen"
+    >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <ng-template
+        cdkConnectedOverlay
+        [cdkConnectedOverlayOpen]="isMenuOpen"
+        [cdkConnectedOverlayOrigin]="headerOrigin"
+        [cdkConnectedOverlayPositions]="[
+            {
+                originX: 'start',
+                originY: 'bottom',
+                overlayX: 'start',
+                overlayY: 'top',
+            },
+        ]"
+    >
+        <div class="menu">
+            <!--      <a href="#" class="menu-item">Матчи</a>-->
+            <!--      <a href="#" class="menu-item">Новости</a>-->
+
+            <button class="menu-item" (click)="isSubMenuOpen = !isSubMenuOpen">
+                О лиге
+            </button>
+            @if (isSubMenuOpen) {
+                <div class="submenu">
+                    <a
+                        routerLink="organizers"
+                        class="menu-item"
+                        (click)="isMenuOpen = false; isSubMenuOpen = false"
+                        >Наша команда</a
+                    >
+                </div>
+            }
+        </div>
+    </ng-template>
 </header>
 <div class="test" cdkOverlayOrigin #headerOrigin="cdkOverlayOrigin"></div>
